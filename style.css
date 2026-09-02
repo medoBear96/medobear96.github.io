@@ -3,3 +3,29 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.role{animation:none!important}.project:before{transition:none}}
 .violet{--accent:#7647d8}.red{--accent:#cf3f4c}.project-tail{display:flex;flex-direction:column;gap:13px}.project-link,.project-status{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em}.project-link:hover{color:var(--accent)}.project-status{color:var(--accent)}.toolkit{display:flex;flex-wrap:wrap;gap:8px;max-width:790px;margin:54px 0 0 auto}.toolkit span{border:1px solid #b9bcb9;border-radius:100px;padding:9px 13px;font-size:.78rem}
 .amber{--accent:#bf7700}.monogram{position:relative;display:block;width:46px;height:32px;transition:width .45s ease}.monogram-short,.monogram-full{position:absolute;left:0;top:0;white-space:nowrap;transition:opacity .25s ease,transform .45s ease}.monogram-full{opacity:0;transform:translateX(-8px);letter-spacing:-.045em}.monogram:hover{width:245px}.monogram:hover .monogram-short{opacity:0;transform:translateX(8px)}.monogram:hover .monogram-full{opacity:1;transform:translateX(0)}#verb{display:inline-block}
+
+/* Interaction and mobile fixes */
+.monogram .monogram-short,.monogram .monogram-full{color:var(--ink)}
+.monogram .monogram-short>span,.monogram .monogram-full>span{color:var(--blue)}
+body{overflow-x:hidden}
+@media(max-width:800px){
+  .shell{width:calc(100% - 24px)}
+  .nav{height:68px;gap:12px}
+  .monogram,.monogram:hover{width:42px;min-width:42px;height:30px;transition:none}
+  .monogram-full{display:none}
+  .monogram-short,.monogram:hover .monogram-short{opacity:1;transform:none}
+  .nav-links{margin-left:auto;gap:12px;font-size:.68rem;letter-spacing:.055em;white-space:nowrap}
+  .nav-links a{padding:12px 0}
+  .hero{min-height:calc(100svh - 68px);padding-top:34px;padding-bottom:30px}
+  .hero h1{font-size:clamp(3.15rem,15vw,5.25rem);line-height:.9;overflow-wrap:anywhere}
+  .hero-bottom p{max-width:calc(100% - 66px);font-size:1rem;line-height:1.45}
+  .project{grid-template-columns:32px minmax(0,1fr);gap:12px 10px;padding:26px 0}
+  .project-description,.project-tail{grid-column:2}
+  .project-description{font-size:.94rem}
+  .project h2{font-size:1.75rem;overflow-wrap:anywhere}
+  .tags{grid-column:auto}
+  .about,.experience{padding:72px 0}
+  .about h2{font-size:clamp(2.35rem,12vw,4rem)}
+  .footer-inner h2{font-size:clamp(3.2rem,16vw,5.5rem)}
+}
+@media(max-width:390px){.nav-links{gap:8px;font-size:.61rem;letter-spacing:.03em}.hero h1{font-size:14vw}}
