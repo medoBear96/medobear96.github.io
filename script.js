@@ -66,6 +66,25 @@ document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") closeMenu();
 });
 
+const main = document.querySelector("main");
+const aboutSection = document.querySelector("#about");
+["experience", "work", "maker", "education", "sailing"].forEach((id) => {
+  main.insertBefore(document.querySelector(`#${id}`), aboutSection);
+});
+
+const pageJump = document.querySelector(".round-link");
+
+function updatePageJump() {
+  const isReturning = window.scrollY > 80;
+  pageJump.href = isReturning ? "#top" : "#experience";
+  pageJump.textContent = isReturning ? "↑" : "↓";
+  pageJump.setAttribute("aria-label", isReturning ? "Return to the top" : "Go to Experience");
+  pageJump.classList.toggle("is-returning", isReturning);
+}
+
+window.addEventListener("scroll", updatePageJump, { passive: true });
+updatePageJump();
+
 document.querySelectorAll("[data-carousel-card]").forEach((card) => {
   const visual = card.querySelector("[data-carousel-visual]");
   const carousel = card.querySelector("[data-carousel]");
