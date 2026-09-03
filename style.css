@@ -258,12 +258,13 @@ section[id], article[id], footer[id] { scroll-margin-top: 24px; }
   grid-column: 1 / -1;
   min-height: auto;
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: minmax(0, 1fr) auto;
   gap: 30px;
   align-items: center;
   padding-block: 24px;
 }
-.sailing-grid .sailing-membership h3 { margin: 0; }
+.sailing-grid .sailing-membership h3 { margin: 8px 0 0; }
+.sailing-membership img { width: 100px; height: 76px; object-fit: contain; }
 .sailing-grid .sailing-feature {
   grid-column: 1 / -1;
   min-height: 340px;
@@ -276,7 +277,7 @@ section[id], article[id], footer[id] { scroll-margin-top: 24px; }
   align-items: center;
   overflow: hidden;
   border-top: 6px solid #df0012;
-  background: linear-gradient(115deg, #10152b 0%, #10152b 76%, #c90012 76%, #c90012 100%);
+  background: linear-gradient(115deg, #10152b 0%, #10152b 66%, #f7f5f0 66%, #f7f5f0 100%);
 }
 .boomerang-copy { position: relative; z-index: 1; }
 .sailing-grid .boomerang-feature span { color: #ff4250; }
@@ -490,9 +491,10 @@ footer .eyebrow span { background: #6e95ff; }
   .split-intro > p, .maker-statement > p { font-size: 1.15rem; }
   .sailing-grid { grid-template-columns: 1fr; }
   .sailing-grid article { min-height: 190px; padding: 24px; }
-  .sailing-grid .sailing-membership { grid-column: auto; grid-template-columns: 1fr; gap: 8px; min-height: auto; }
+  .sailing-grid .sailing-membership { grid-column: auto; grid-template-columns: minmax(0, 1fr) auto; gap: 16px; min-height: auto; }
+  .sailing-membership img { width: 78px; height: auto; }
   .sailing-grid .sailing-feature { grid-column: auto; min-height: 230px; }
-  .sailing-grid .boomerang-feature { grid-template-columns: 1fr; gap: 32px; background: #10152b; }
+  .sailing-grid .boomerang-feature { grid-template-columns: 1fr; gap: 32px; background: linear-gradient(160deg, #10152b 0%, #10152b 58%, #f7f5f0 58%, #f7f5f0 100%); }
   .sailing-grid .boomerang-feature h3 { margin-top: 18px; }
   .boomerang-feature img { width: 180px; max-height: 185px; justify-self: start; }
   .maker-layout { grid-template-columns: 1fr; gap: 55px; }
