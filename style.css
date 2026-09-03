@@ -245,7 +245,7 @@ section[id], article[id], footer[id] { scroll-margin-top: 24px; }
   border-right: 1px solid var(--rule);
   border-bottom: 1px solid var(--rule);
 }
-.sailing-grid span, .education-list > article > span {
+.sailing-grid span, .sailing-membership > span, .education-list > article > span {
   color: var(--muted);
   font-size: .75rem;
   font-weight: 700;
@@ -254,17 +254,17 @@ section[id], article[id], footer[id] { scroll-margin-top: 24px; }
 }
 .sailing-grid h3 { margin: 48px 0 10px; font-size: 1.75rem; letter-spacing: -.04em; }
 .sailing-grid p { max-width: 440px; margin: 0 0 14px; color: #414b55; line-height: 1.55; }
-.sailing-grid .sailing-membership {
-  grid-column: 1 / -1;
-  min-height: auto;
+.sailing-membership {
+  margin-left: 114px;
   display: grid;
   grid-template-columns: 1fr 3fr;
   gap: 30px;
   align-items: center;
-  padding-block: 28px;
+  padding: 28px 0;
+  border-top: 1px solid var(--rule);
 }
 .sailing-membership-main { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-.sailing-grid .sailing-membership h3 { margin: 0; }
+.sailing-membership h3 { margin: 0; font-size: 1.55rem; letter-spacing: -.035em; }
 .sailing-membership img { width: 100px; height: 76px; object-fit: contain; }
 .sailing-grid .sailing-feature {
   grid-column: 1 / -1;
@@ -463,7 +463,7 @@ footer .eyebrow span { background: #6e95ff; }
   .nav-links.is-open { display: grid; }
   .nav-links a { padding: 14px 8px 14px 0; border-bottom: 1px solid #d9d9d3; }
   .hero { min-height: calc(100svh - 74px); }
-  .career-list, .split-intro, .sailing-grid, .maker-layout, .education-list { margin-left: 0; }
+  .career-list, .split-intro, .sailing-membership, .sailing-grid, .maker-layout, .education-list { margin-left: 0; }
   .career-item { grid-template-columns: .8fr 1.1fr 1.7fr; }
   .maker-layout { gap: 55px; }
 }
@@ -492,7 +492,7 @@ footer .eyebrow span { background: #6e95ff; }
   .split-intro > p, .maker-statement > p { font-size: 1.15rem; }
   .sailing-grid { grid-template-columns: 1fr; }
   .sailing-grid article { min-height: 190px; padding: 24px; }
-  .sailing-grid .sailing-membership { grid-column: auto; grid-template-columns: 1fr; gap: 10px; min-height: auto; }
+  .sailing-membership { grid-template-columns: 1fr; gap: 10px; }
   .sailing-membership img { width: 78px; height: auto; }
   .sailing-grid .sailing-feature { grid-column: auto; min-height: 230px; }
   .sailing-grid .boomerang-feature { grid-template-columns: 1fr; gap: 32px; background: linear-gradient(160deg, #10152b 0%, #10152b 58%, #f7f5f0 58%, #f7f5f0 100%); }
