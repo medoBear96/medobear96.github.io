@@ -209,7 +209,7 @@ section[id], article[id], footer[id] { scroll-margin-top: 24px; }
   padding: 34px 0;
   border-top: 1px solid var(--rule);
 }
-.career-date { color: var(--muted); font-size: .82rem; line-height: 1.5; }
+.career-date { color: var(--muted); font-size: .88rem; line-height: 1.5; }
 .career-role p, .career-role h3, .career-copy p { margin: 0; }
 .career-role p {
   margin-bottom: 8px;
@@ -235,7 +235,7 @@ section[id], article[id], footer[id] { scroll-margin-top: 24px; }
 .sailing-list { margin-left: 114px; border-bottom: 1px solid var(--rule); }
 .sailing-item {
   display: grid;
-  grid-template-columns: 1fr 1.2fr 2fr;
+  grid-template-columns: .8fr 1.44fr 2fr;
   gap: 30px;
   align-items: start;
   padding: 28px 0;
@@ -243,15 +243,16 @@ section[id], article[id], footer[id] { scroll-margin-top: 24px; }
 }
 .sailing-item > span, .education-list > article > span {
   color: var(--muted);
-  font-size: .75rem;
+  font-size: .8125rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: .1em;
 }
+.education-list > article > span { font-size: .75rem; }
 .sailing-item h3 { margin: 0; font-size: 1.55rem; letter-spacing: -.035em; }
 .sailing-detail p { max-width: 520px; margin: 0 0 10px; color: #414b55; line-height: 1.55; }
 .sailing-membership { align-items: center; }
-.sailing-membership img { width: 100px; height: 76px; object-fit: contain; justify-self: end; }
+.sailing-membership img { width: 100px; height: 76px; object-fit: contain; justify-self: center; }
 .boomerang-feature {
   position: relative;
   margin-left: 114px;
@@ -359,15 +360,15 @@ section[id], article[id], footer[id] { scroll-margin-top: 24px; }
   content: "";
   position: absolute;
   z-index: 4;
-  top: -12%;
-  left: 23px;
+  top: -25%;
+  left: 60px;
   width: 7px;
-  height: 124%;
+  height: 150%;
   background: var(--blue);
   transform: rotate(10deg);
   transform-origin: center;
 }
-.essetivi-stripes::after { left: 39px; }
+.essetivi-stripes::after { left: 76px; }
 .essetivi-logo {
   position: absolute;
   top: 50%;
@@ -380,7 +381,14 @@ section[id], article[id], footer[id] { scroll-margin-top: 24px; }
   opacity: 1;
   transition: opacity .25s ease;
 }
-.essetivi-carousel { position: absolute; inset: 0; display: block; opacity: 0; transition: opacity .3s ease .12s; }
+.essetivi-carousel {
+  position: absolute;
+  inset: 0;
+  display: block;
+  opacity: 0;
+  clip-path: polygon(125px 0, 100% 0, 100% 100%, 37px 100%);
+  transition: opacity .3s ease .12s;
+}
 .essetivi-slide {
   position: absolute;
   inset: 0;
@@ -601,6 +609,7 @@ footer .eyebrow span { background: #6e95ff; }
   .essetivi-visual, .essetivi-feature:hover .essetivi-visual, .essetivi-feature.is-gallery-open .essetivi-visual, .essetivi-visual:focus-visible { inset: auto 0 0; width: 100%; height: 245px; padding: 50px 24px 26px; }
   .essetivi-stripes::before, .essetivi-stripes::after { top: 15px; left: -5%; width: 110%; height: 6px; transform: rotate(-4deg); }
   .essetivi-stripes::after { top: 30px; left: -5%; }
+  .essetivi-carousel { clip-path: polygon(0 48px, 100% 31px, 100% 100%, 0 100%); }
   .essetivi-logo { top: 58%; left: 50%; width: min(74%, 260px); max-height: 165px; }
   .maker-layout { grid-template-columns: 1fr; gap: 55px; }
   .asperastra-content article { min-height: auto; }
