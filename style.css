@@ -282,7 +282,7 @@ section[id], article[id], footer[id] { scroll-margin-top: 24px; }
   inset: 0 0 0 auto;
   z-index: 2;
   display: block;
-  width: 29%;
+  width: 35%;
   min-width: 0;
   padding: 36px 34px 36px 82px;
   border: 0;
@@ -299,7 +299,7 @@ section[id], article[id], footer[id] { scroll-margin-top: 24px; }
 .boomerang-logo {
   position: absolute;
   top: 50%;
-  left: 57%;
+  left: 54%;
   transform: translate(-50%, -50%);
   width: min(100%, 290px);
   max-height: 290px;
