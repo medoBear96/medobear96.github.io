@@ -65,3 +65,50 @@ navLinks.querySelectorAll("a").forEach((link) => link.addEventListener("click", 
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") closeMenu();
 });
+
+const boomerangFeature = document.querySelector(".boomerang-feature");
+const boomerangVisual = document.querySelector(".boomerang-visual");
+const boomerangCarousel = document.querySelector(".boomerang-carousel");
+const boomerangSlides = [...document.querySelectorAll(".boomerang-slide")];
+let boomerangSlideIndex = 0;
+let boomerangTimer;
+
+function showBoomerangSlide(index) {
+  boomerangSlides[boomerangSlideIndex].classList.remove("is-active");
+  boomerangSlideIndex = index % boomerangSlides.length;
+  boomerangSlides[boomerangSlideIndex].classList.add("is-active");
+}
+
+function openBoomerangGallery() {
+  if (boomerangFeature.classList.contains("is-gallery-open")) return;
+  boomerangFeature.classList.add("is-gallery-open");
+  boomerangVisual.setAttribute("aria-pressed", "true");
+  boomerangCarousel.setAttribute("aria-hidden", "false");
+  boomerangTimer = window.setInterval(() => showBoomerangSlide(boomerangSlideIndex + 1), 3600);
+}
+
+function closeBoomerangGallery() {
+  boomerangFeature.classList.remove("is-gallery-open");
+  boomerangVisual.setAttribute("aria-pressed", "false");
+  boomerangCarousel.setAttribute("aria-hidden", "true");
+  window.clearInterval(boomerangTimer);
+  showBoomerangSlide(0);
+}
+
+boomerangFeature.addEventListener("pointerenter", () => {
+  if (window.matchMedia("(hover: hover)").matches) openBoomerangGallery();
+});
+boomerangFeature.addEventListener("pointerleave", () => {
+  if (window.matchMedia("(hover: hover)").matches) closeBoomerangGallery();
+});
+boomerangVisual.addEventListener("click", (event) => {
+  if (!window.matchMedia("(hover: none)").matches && event.detail !== 0) return;
+  if (boomerangFeature.classList.contains("is-gallery-open")) closeBoomerangGallery();
+  else openBoomerangGallery();
+});
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && boomerangFeature.classList.contains("is-gallery-open")) {
+    closeBoomerangGallery();
+    boomerangVisual.focus();
+  }
+});

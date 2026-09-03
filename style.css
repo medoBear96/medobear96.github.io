@@ -253,8 +253,7 @@ section[id], article[id], footer[id] { scroll-margin-top: 24px; }
 .sailing-membership { align-items: center; }
 .sailing-membership img { width: 100px; height: 76px; object-fit: contain; justify-self: end; }
 .boomerang-feature {
-  display: grid;
-  grid-template-columns: 1.22fr .78fr;
+  position: relative;
   margin-left: 114px;
   margin-top: 46px;
   min-height: 340px;
@@ -262,10 +261,8 @@ section[id], article[id], footer[id] { scroll-margin-top: 24px; }
   overflow: hidden;
   border-top: 6px solid #df0012;
   background: #10152b;
-  transition: grid-template-columns .45s cubic-bezier(.22,.75,.25,1);
 }
-.boomerang-feature:hover, .boomerang-feature:focus-within { grid-template-columns: 1.08fr .92fr; }
-.boomerang-copy { position: relative; z-index: 1; align-self: center; padding: 38px 30px; }
+.boomerang-copy { position: relative; z-index: 1; width: 62%; padding: 54px 30px; }
 .boomerang-feature span { color: #ff4250; font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; }
 .boomerang-feature h3 {
   margin: 20px 0 14px;
@@ -281,19 +278,51 @@ section[id], article[id], footer[id] { scroll-margin-top: 24px; }
 }
 .boomerang-feature a:hover { color: #ff4250; }
 .boomerang-visual {
-  display: grid;
-  place-items: center;
+  position: absolute;
+  inset: 0 0 0 auto;
+  z-index: 2;
+  display: block;
+  width: 29%;
   min-width: 0;
   padding: 36px 34px 36px 82px;
+  border: 0;
+  color: inherit;
   background: #f7f5f0;
   clip-path: polygon(22% 0, 100% 0, 100% 100%, 0 100%);
-  transition: clip-path .45s cubic-bezier(.22,.75,.25,1);
+  cursor: pointer;
+  transition: width .45s cubic-bezier(.22,.75,.25,1), clip-path .45s cubic-bezier(.22,.75,.25,1);
 }
-.boomerang-feature:hover .boomerang-visual, .boomerang-feature:focus-within .boomerang-visual { clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%); }
-.boomerang-visual img {
+.boomerang-feature:hover .boomerang-visual, .boomerang-feature.is-gallery-open .boomerang-visual, .boomerang-visual:focus-visible {
+  width: 44%;
+  clip-path: polygon(12% 0, 100% 0, 100% 100%, 0 100%);
+}
+.boomerang-logo {
+  position: absolute;
+  top: 50%;
+  left: 57%;
+  transform: translate(-50%, -50%);
   width: min(100%, 290px);
   max-height: 290px;
   object-fit: contain;
+  opacity: 1;
+  transition: opacity .25s ease;
+}
+.boomerang-carousel { position: absolute; inset: 0; display: block; opacity: 0; transition: opacity .3s ease .12s; }
+.boomerang-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity .55s ease;
+}
+.boomerang-slide.is-active { opacity: 1; }
+.boomerang-feature.is-gallery-open .boomerang-logo { opacity: 0; }
+.boomerang-feature.is-gallery-open .boomerang-carousel { opacity: 1; }
+.boomerang-visual:focus-visible { outline: 3px solid #df0012; outline-offset: -3px; }
+@media (prefers-reduced-motion: reduce) {
+  .boomerang-visual, .boomerang-logo, .boomerang-carousel, .boomerang-slide { transition: none; }
 }
 
 /* Maker */
@@ -488,11 +517,11 @@ footer .eyebrow span { background: #6e95ff; }
   .sailing-membership { grid-template-columns: minmax(0, 1fr) auto; gap: 10px 16px; }
   .sailing-membership > span { grid-column: 1 / -1; }
   .sailing-membership img { width: 78px; height: auto; grid-column: 2; grid-row: 2; }
-  .boomerang-feature, .boomerang-feature:hover, .boomerang-feature:focus-within { grid-template-columns: 1fr; min-height: 0; }
-  .boomerang-copy { padding: 34px 24px 44px; }
+  .boomerang-feature { min-height: 0; padding-bottom: 245px; }
+  .boomerang-copy { width: 100%; padding: 34px 24px 44px; }
   .boomerang-feature h3 { margin-top: 18px; }
-  .boomerang-visual, .boomerang-feature:hover .boomerang-visual, .boomerang-feature:focus-within .boomerang-visual { min-height: 230px; padding: 72px 24px 30px; clip-path: polygon(0 18%, 100% 0, 100% 100%, 0 100%); }
-  .boomerang-visual img { width: 180px; max-height: 185px; }
+  .boomerang-visual, .boomerang-feature:hover .boomerang-visual, .boomerang-feature.is-gallery-open .boomerang-visual, .boomerang-visual:focus-visible { inset: auto 0 0; width: 100%; height: 245px; padding: 72px 24px 30px; clip-path: polygon(0 18%, 100% 0, 100% 100%, 0 100%); }
+  .boomerang-logo { left: 50%; width: 180px; max-height: 185px; }
   .maker-layout { grid-template-columns: 1fr; gap: 55px; }
   .asperastra-content article { min-height: auto; }
   .asperastra-content h4 { margin-top: 36px; }
