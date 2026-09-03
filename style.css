@@ -169,7 +169,7 @@ section[id], article[id], footer[id] { scroll-margin-top: 24px; }
 }
 .section-label {
   margin: 8px 0 24px;
-  font-size: .75rem;
+  font-size: .875rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: .16em;
