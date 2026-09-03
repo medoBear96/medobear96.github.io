@@ -359,16 +359,12 @@ section[id], article[id], footer[id] { scroll-margin-top: 24px; }
 .essetivi-stripes::before, .essetivi-stripes::after {
   content: "";
   position: absolute;
+  inset: 0;
   z-index: 4;
-  top: -25%;
-  left: 60px;
-  width: 7px;
-  height: 150%;
   background: var(--blue);
-  transform: rotate(10deg);
-  transform-origin: center;
+  clip-path: polygon(25% 0, 27% 0, 7% 100%, 5% 100%);
 }
-.essetivi-stripes::after { left: 76px; }
+.essetivi-stripes::after { clip-path: polygon(29% 0, 31% 0, 11% 100%, 9% 100%); }
 .essetivi-logo {
   position: absolute;
   top: 50%;
@@ -386,7 +382,7 @@ section[id], article[id], footer[id] { scroll-margin-top: 24px; }
   inset: 0;
   display: block;
   opacity: 0;
-  clip-path: polygon(125px 0, 100% 0, 100% 100%, 37px 100%);
+  clip-path: polygon(39% 0, 100% 0, 100% 100%, 19% 100%);
   transition: opacity .3s ease .12s;
 }
 .essetivi-slide {
@@ -607,9 +603,9 @@ footer .eyebrow span { background: #6e95ff; }
   .essetivi-copy { width: 100%; padding: 34px 24px 44px; }
   .essetivi-feature h3 { margin-top: 18px; }
   .essetivi-visual, .essetivi-feature:hover .essetivi-visual, .essetivi-feature.is-gallery-open .essetivi-visual, .essetivi-visual:focus-visible { inset: auto 0 0; width: 100%; height: 245px; padding: 50px 24px 26px; }
-  .essetivi-stripes::before, .essetivi-stripes::after { top: 15px; left: -5%; width: 110%; height: 6px; transform: rotate(-4deg); }
-  .essetivi-stripes::after { top: 30px; left: -5%; }
-  .essetivi-carousel { clip-path: polygon(0 48px, 100% 31px, 100% 100%, 0 100%); }
+  .essetivi-stripes::before, .essetivi-stripes::after { clip-path: polygon(0 9%, 100% 0, 100% 2.5%, 0 11.5%); }
+  .essetivi-stripes::after { clip-path: polygon(0 15%, 100% 6%, 100% 8.5%, 0 17.5%); }
+  .essetivi-carousel { clip-path: polygon(0 28%, 100% 19%, 100% 100%, 0 100%); }
   .essetivi-logo { top: 58%; left: 50%; width: min(74%, 260px); max-height: 165px; }
   .maker-layout { grid-template-columns: 1fr; gap: 55px; }
   .asperastra-content article { min-height: auto; }
