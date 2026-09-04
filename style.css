@@ -270,8 +270,9 @@ section[id], article[id], footer[id] { scroll-margin-top: 110px; }
 .education-list > article > span { font-size: .75rem; }
 .sailing-item h3 { margin: 0; font-size: 1.55rem; letter-spacing: -.035em; }
 .sailing-detail p { max-width: 520px; margin: 0 0 10px; color: #414b55; line-height: 1.55; }
-.sailing-membership { align-items: center; }
-.sailing-membership img { width: 100px; height: 76px; object-fit: contain; justify-self: center; }
+.sailing-membership { align-items: start; }
+.stv-link-row { display: flex; align-items: center; gap: 10px; }
+.stv-link-row img { width: 32px; height: 24px; object-fit: contain; }
 .boomerang-feature {
   position: relative;
   margin-left: 114px;
@@ -348,7 +349,7 @@ section[id], article[id], footer[id] { scroll-margin-top: 110px; }
 .essetivi-feature {
   --essetivi-blue: #0057c3;
   position: relative;
-  margin: 28px 0 0 114px;
+  margin: 60px 0 0 114px;
   min-height: 340px;
   overflow: hidden;
   border: 1px solid var(--rule);
@@ -627,9 +628,7 @@ footer .eyebrow span { background: #6e95ff; }
   .split-intro { grid-template-columns: 1fr; gap: 38px; margin-bottom: 48px; }
   .split-intro > p, .maker-statement > p { font-size: 1.15rem; }
   .sailing-item { grid-template-columns: 1fr; gap: 10px; }
-  .sailing-membership { grid-template-columns: minmax(0, 1fr) auto; gap: 10px 16px; }
-  .sailing-membership > span { grid-column: 1 / -1; }
-  .sailing-membership img { width: 78px; height: auto; grid-column: 2; grid-row: 2; }
+  .sailing-membership { grid-template-columns: 1fr; gap: 10px; }
   .boomerang-feature { min-height: 0; padding-bottom: 245px; }
   .boomerang-copy { width: 100%; padding: 34px 24px 44px; }
   .boomerang-feature h3 { margin-top: 18px; }
