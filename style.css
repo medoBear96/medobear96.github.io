@@ -228,7 +228,7 @@ section[id], article[id], footer[id] { scroll-margin-top: 110px; }
   padding: 34px 0;
   border-top: 1px solid var(--rule);
 }
-.career-date { color: var(--muted); font-size: .88rem; line-height: 1.5; }
+.career-date { color: var(--muted); font-size: 1.05rem; line-height: 1.5; }
 .career-role p, .career-role h3, .career-copy p { margin: 0; }
 .career-role p {
   margin-bottom: 8px;
@@ -552,7 +552,6 @@ section[id], article[id], footer[id] { scroll-margin-top: 110px; }
 .orange { --accent: #f56629; }
 .cyan { --accent: #00a9b7; }
 .violet { --accent: #7647d8; }
-#project-fpga-audio-equalizer { --accent: #b83280; }
 .lime { --accent: #729900; }
 
 /* About and contact */
