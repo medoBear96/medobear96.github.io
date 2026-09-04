@@ -552,6 +552,7 @@ section[id], article[id], footer[id] { scroll-margin-top: 110px; }
 .orange { --accent: #f56629; }
 .cyan { --accent: #00a9b7; }
 .violet { --accent: #7647d8; }
+#project-fpga-audio-equalizer { --accent: #b83280; }
 .lime { --accent: #729900; }
 
 /* About and contact */
