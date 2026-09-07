@@ -48,6 +48,30 @@ for (let i = 0; i < 32; i += 1) {
 
 const navToggle = document.querySelector(".nav-toggle");
 const navLinks = document.querySelector("#nav-links");
+const monogram = document.querySelector(".monogram");
+const initialNameHoldUntil = Date.now() + 5000;
+let monogramTimer;
+
+function expandMonogram() {
+  window.clearTimeout(monogramTimer);
+  monogram.classList.add("is-expanded");
+}
+
+function scheduleMonogramCollapse(delay = 3000) {
+  window.clearTimeout(monogramTimer);
+  const remainingInitialHold = Math.max(0, initialNameHoldUntil - Date.now());
+  monogramTimer = window.setTimeout(
+    () => monogram.classList.remove("is-expanded"),
+    Math.max(delay, remainingInitialHold)
+  );
+}
+
+expandMonogram();
+scheduleMonogramCollapse(5000);
+monogram.addEventListener("pointerenter", expandMonogram);
+monogram.addEventListener("pointerleave", () => scheduleMonogramCollapse(3000));
+monogram.addEventListener("focus", expandMonogram);
+monogram.addEventListener("blur", () => scheduleMonogramCollapse(3000));
 
 function closeMenu() {
   navLinks.classList.remove("is-open");
@@ -129,6 +153,70 @@ document.querySelectorAll("[data-carousel-card]").forEach((card) => {
     if (event.key === "Escape" && card.classList.contains("is-gallery-open")) {
       closeGallery();
       visual.focus();
+    }
+  });
+});
+
+document.querySelectorAll("[data-project-card]").forEach((card) => {
+  const toggle = card.querySelector(".project-detail-toggle");
+  const detail = card.querySelector(".project-detail");
+  const carousel = card.querySelector("[data-project-carousel]");
+  const slides = [...carousel.querySelectorAll(".project-slide")];
+  const previous = carousel.querySelector("[data-project-prev]");
+  const next = carousel.querySelector("[data-project-next]");
+  const counter = carousel.querySelector("[data-project-counter]");
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  let slideIndex = 0;
+  let carouselTimer;
+
+  function stopCarousel() {
+    window.clearInterval(carouselTimer);
+    carouselTimer = undefined;
+  }
+
+  function startCarousel() {
+    stopCarousel();
+    if (reduceMotion.matches || slides.length < 2 || slides[slideIndex].querySelector("video")) return;
+    carouselTimer = window.setInterval(() => showProjectSlide(slideIndex + 1), 3600);
+  }
+
+  function showProjectSlide(index) {
+    slides[slideIndex].classList.remove("is-active");
+    slides[slideIndex].querySelectorAll("video").forEach((video) => video.pause());
+    slideIndex = (index + slides.length) % slides.length;
+    slides[slideIndex].classList.add("is-active");
+    counter.textContent = `${String(slideIndex + 1).padStart(2, "0")} / ${String(slides.length).padStart(2, "0")}`;
+    startCarousel();
+  }
+
+  function setProjectOpen(isOpen) {
+    card.classList.toggle("is-detail-open", isOpen);
+    toggle.setAttribute("aria-expanded", String(isOpen));
+    toggle.textContent = isOpen ? "Details ↑" : "Details ↓";
+    detail.setAttribute("aria-hidden", String(!isOpen));
+    detail.inert = !isOpen;
+    if (isOpen) startCarousel();
+    else {
+      stopCarousel();
+      slides.forEach((slide) => slide.querySelectorAll("video").forEach((video) => video.pause()));
+      showProjectSlide(0);
+      stopCarousel();
+    }
+  }
+
+  card.addEventListener("pointerenter", () => {
+    if (window.matchMedia("(hover: hover)").matches) setProjectOpen(true);
+  });
+  card.addEventListener("pointerleave", () => {
+    if (window.matchMedia("(hover: hover)").matches) setProjectOpen(false);
+  });
+  toggle.addEventListener("click", () => setProjectOpen(!card.classList.contains("is-detail-open")));
+  previous.addEventListener("click", () => showProjectSlide(slideIndex - 1));
+  next.addEventListener("click", () => showProjectSlide(slideIndex + 1));
+  card.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && card.classList.contains("is-detail-open")) {
+      setProjectOpen(false);
+      toggle.focus();
     }
   });
 });
