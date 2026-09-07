@@ -618,6 +618,7 @@ section[id], article[id], footer[id] { scroll-margin-top: 110px; }
 .project-slide.is-active { opacity: 1; pointer-events: auto; }
 .project-slide img, .project-slide video { display: block; width: 100%; height: 100%; object-fit: cover; }
 .project-slide video { object-fit: contain; background: var(--ink); }
+.project-slide.fit-contain img { object-fit: contain; background: var(--ink); }
 .project-slide.technical-slide img { object-fit: contain; padding: 18px; background: var(--paper); }
 .project-slide figcaption {
   position: absolute;

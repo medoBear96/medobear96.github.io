@@ -185,7 +185,7 @@ document.querySelectorAll("[data-project-card]").forEach((card) => {
     slides[slideIndex].querySelectorAll("video").forEach((video) => video.pause());
     slideIndex = (index + slides.length) % slides.length;
     slides[slideIndex].classList.add("is-active");
-    counter.textContent = `${String(slideIndex + 1).padStart(2, "0")} / ${String(slides.length).padStart(2, "0")}`;
+    if (counter) counter.textContent = `${String(slideIndex + 1).padStart(2, "0")} / ${String(slides.length).padStart(2, "0")}`;
     startCarousel();
   }
 
@@ -211,8 +211,8 @@ document.querySelectorAll("[data-project-card]").forEach((card) => {
     if (window.matchMedia("(hover: hover)").matches) setProjectOpen(false);
   });
   toggle.addEventListener("click", () => setProjectOpen(!card.classList.contains("is-detail-open")));
-  previous.addEventListener("click", () => showProjectSlide(slideIndex - 1));
-  next.addEventListener("click", () => showProjectSlide(slideIndex + 1));
+  previous?.addEventListener("click", () => showProjectSlide(slideIndex - 1));
+  next?.addEventListener("click", () => showProjectSlide(slideIndex + 1));
   card.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && card.classList.contains("is-detail-open")) {
       setProjectOpen(false);
