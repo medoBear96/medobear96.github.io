@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="Riccardo Medvescek — electronic and computer engineer, sailor and maker building embedded systems, automation tools and sailing technology.">
   <title>Riccardo Medvescek — Engineer, Sailor & Maker</title>
-  <link rel="stylesheet" href="style.css?v=25">
+  <link rel="stylesheet" href="style.css?v=26">
 </head>
 <body>
 <main>
@@ -184,6 +184,7 @@
           <a href="#project-echo-node">Echo Node ↘</a>
           <a href="#project-drone">SlightlyStable3 Drone ↘</a>
           <a href="#project-pendulum">Flywheel Pendulum ↘</a>
+          <a href="#project-fpga-audio-equalizer">FPGA Audio Equalizer ↘</a>
         </div>
         <div class="capability-list">
           <span>Soldering &amp; prototyping</span>
@@ -276,6 +277,13 @@
         <div class="project-detail" id="pendulum-detail" aria-hidden="true" inert><div class="project-detail-inner">
           <div class="project-detail-copy"><p class="project-detail-label">Inside the project</p><h3>Control theory made physical.</h3><p>The thesis moved from a mathematical model and controller design to an electromechanical prototype. A motor-driven flywheel generates the reaction torque required to correct the pendulum, joining sensing, actuation, structure design and experimental tuning in one closed loop.</p></div>
           <div class="project-gallery" data-project-carousel><div class="project-slides"><figure class="project-slide is-active"><img src="https://raw.githubusercontent.com/medoBear96/BachelorsThesis_flywheel_Inverted_Pendulum/main/Structure/Pendolo.jpg" alt="Flywheel inverted pendulum structure" loading="lazy"></figure><figure class="project-slide"><img src="https://raw.githubusercontent.com/medoBear96/BachelorsThesis_flywheel_Inverted_Pendulum/main/Structure/Volano.jpg" alt="Flywheel assembly" loading="lazy"></figure><figure class="project-slide"><video controls preload="metadata" playsinline><source src="https://raw.githubusercontent.com/medoBear96/BachelorsThesis_flywheel_Inverted_Pendulum/main/Video/Progetto%20video.mp4" type="video/mp4"></video></figure></div><div class="project-gallery-controls"><button type="button" data-project-prev aria-label="Previous pendulum media">←</button><span data-project-counter>01 / 03</span><button type="button" data-project-next aria-label="Next pendulum media">→</button></div></div>
+        </div></div>
+      </article>
+      <article class="project project-expandable magenta" id="project-fpga-audio-equalizer" data-project-card>
+        <div class="project-summary"><span class="project-number">08</span><div><p class="project-kicker">Resource-efficient stereo FIR filtering</p><h2>FPGA Audio Equalizer</h2></div><p class="project-description">A stereo audio filtering pipeline on Cyclone V FPGA: complementary 51-tap FIR high- and low-pass filters, selectable bypass and nine gain levels, implemented in VHDL around a folded, time-multiplexed MAC that uses a single DSP block.</p><div class="project-tail"><div class="tags"><span>FPGA</span><span>VHDL</span><span>DSP</span><span>Digital filters</span><span>Audio</span></div><div class="project-actions"><span class="project-status">Academic project</span><button class="project-detail-toggle" type="button" aria-expanded="false" aria-controls="fpga-audio-detail">Details ↓</button></div></div></div>
+        <div class="project-detail" id="fpga-audio-detail" aria-hidden="true" inert><div class="project-detail-inner">
+          <div class="project-detail-copy"><p class="project-detail-label">Inside the project</p><h3>Two filters, one DSP block.</h3><p>Designed for 48 kHz, 24-bit stereo audio, the project exploits FIR symmetry and a time-multiplexed multiply-accumulate state machine to minimize FPGA resources. The complete pipeline was verified against MATLAB, exercised in ModelSim with a VHDL testbench and measured on physical hardware with a PicoScope.</p></div>
+          <div class="project-gallery" data-project-carousel><div class="project-slides"><figure class="project-slide technical-slide is-active"><img src="assets/fpga-filter-response.png" alt="Expected low-pass and high-pass frequency responses calculated in MATLAB" loading="lazy"><figcaption>Expected response · MATLAB</figcaption></figure><figure class="project-slide technical-slide"><img src="assets/fpga-modelsim-spectrum.png" alt="Frequency spectrum obtained from the ModelSim VHDL testbench" loading="lazy"><figcaption>Testbench output · ModelSim + MATLAB FFT</figcaption></figure><figure class="project-slide technical-slide"><img src="assets/fpga-oscilloscope-low-pass.png" alt="PicoScope measurement of the FPGA low-pass filter" loading="lazy"><figcaption>Physical measurement · Low-pass</figcaption></figure><figure class="project-slide technical-slide"><img src="assets/fpga-oscilloscope-high-pass.png" alt="PicoScope measurement of the FPGA high-pass filter" loading="lazy"><figcaption>Physical measurement · High-pass</figcaption></figure></div><div class="project-gallery-controls"><button type="button" data-project-prev aria-label="Previous FPGA equalizer image">←</button><span data-project-counter>01 / 04</span><button type="button" data-project-next aria-label="Next FPGA equalizer image">→</button></div></div>
         </div></div>
       </article>
     </div>
