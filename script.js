@@ -204,12 +204,6 @@ document.querySelectorAll("[data-project-card]").forEach((card) => {
     }
   }
 
-  card.addEventListener("pointerenter", () => {
-    if (window.matchMedia("(hover: hover)").matches) setProjectOpen(true);
-  });
-  card.addEventListener("pointerleave", () => {
-    if (window.matchMedia("(hover: hover)").matches) setProjectOpen(false);
-  });
   toggle.addEventListener("click", () => setProjectOpen(!card.classList.contains("is-detail-open")));
   previous?.addEventListener("click", () => showProjectSlide(slideIndex - 1));
   next?.addEventListener("click", () => showProjectSlide(slideIndex + 1));
